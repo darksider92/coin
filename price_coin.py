@@ -91,11 +91,14 @@ if __name__ == "__main__":
             else:
                 my_coin_porfolio()
         if name_inp == "c":
-            with open("db.json", "r", encoding="UTF-8") as f:
-                result = json.load(f)
-                for key, value in result.items():
-                    param = input_coin(key)
-                    print_price(param, value)
+            try:
+                with open("db.json", "r", encoding="UTF-8") as f:
+                    result = json.load(f)
+                    for key, value in result.items():
+                        param = input_coin(key)
+                        print_price(param, value)
+            except OSError:
+                print("Создайте базу данных")
         if name_inp == "a":
             print("ripple", " bitcoin", " litecoin", " ethereum")
             coin_name = input("Введите имя криптовалюты: ").lower()
@@ -115,4 +118,4 @@ if __name__ == "__main__":
             if answer == "Yes".lower():
                 os.remove("db.json")
             elif answer == "No".lower():
-                pass
+                continue
