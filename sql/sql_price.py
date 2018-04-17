@@ -4,6 +4,7 @@ import requests
 URL = "https://api.coinmarketcap.com/v1/global/"
 tickerURL = "https://api.coinmarketcap.com/v1/ticker/"
 
+
 def create_table ():
     """
     Создается Таблица в  базе данных mysql
